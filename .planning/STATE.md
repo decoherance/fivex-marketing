@@ -56,10 +56,10 @@ None yet.
 
 - Play Store URL must be live before Phase 3 can complete (product dependency, not technical)
 - Real app screenshots needed before Phase 2 section build completes (confirm placeholder approach in Phase 1)
-- Custom domain vs. project URL decision must be made in Phase 1 (affects base path config and all future shared links)
+- ~~Custom domain vs. project URL~~ — Resolved: subdomain fivexstrong.decoherance-interactive.com, base path `/`
 
 ## Session Continuity
 
 Last session: 2026-03-28
-Stopped at: Roadmap created. Next step: run /gsd:plan-phase 1
-Resume file: None
+Stopped at: Phase 1 context gathered
+Resume file: .planning/phases/01-foundation/01-CONTEXT.md
