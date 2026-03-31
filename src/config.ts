@@ -1,4 +1,4 @@
-export const siteUrl = 'https://fivexstrong.decoherance-interactive.com';
+export const siteUrl = 'https://decoherance-interactive.com';
 
 export const playStoreUrl =
   'https://play.google.com/store/apps/details?id=PLACEHOLDER_APP_ID';

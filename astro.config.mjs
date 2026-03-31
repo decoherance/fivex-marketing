@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://fivexstrong.decoherance-interactive.com',
+  site: 'https://decoherance-interactive.com',
   trailingSlash: 'ignore',
   fonts: [
     {
