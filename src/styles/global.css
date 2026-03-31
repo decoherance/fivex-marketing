@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Brand colors */
+  --color-brand-green: #00E676;
+  --color-brand-teal: #00BFA5;
+  --color-brand-purple: #D1C4E9;
+
+  /* Dark surface colors */
+  --color-surface-base: #0a0a0a;
+  --color-surface-card: #141414;
+  --color-surface-raised: #1a1a1a;
+
+  /* Border colors */
+  --color-border-subtle: #222222;
+  --color-border: #2e2e2e;
+
+  /* Text colors */
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #717171;
+
+  /* Font family override — Inter as default sans */
+  --font-sans: var(--font-inter);
+}
+
+@theme inline {
+  /* Wire Fonts API CSS variables to semantic names */
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-surface-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+  }
+}
