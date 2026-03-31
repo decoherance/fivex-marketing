@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-03-28)
 ## Current Position
 
 Phase: 1 of 3 (Foundation)
-Plan: 1 of 2 in current phase
-Status: In progress
-Last activity: 2026-03-31 — 01-01 complete (Astro 6 scaffold, Tailwind v4, design tokens, BaseLayout)
+Plan: 2 of 2 in current phase (phase complete)
+Status: Phase 1 complete
+Last activity: 2026-03-31 — 01-02 complete (branded landing page, GitHub Actions deploy, CNAME, OG image)
 
-Progress: [██░░░░░░░░] 20%
+Progress: [████░░░░░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 5 min
-- Total execution time: 5 min
+- Total plans completed: 2
+- Average duration: 4 min
+- Total execution time: 7 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-foundation | 1 | 5 min | 5 min |
+| 01-foundation | 2 | 7 min | 4 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5 min)
-- Trend: —
+- Last 5 plans: 01-01 (5 min), 01-02 (2 min)
+- Trend: Fast
 
 *Updated after each plan completion*
 
@@ -50,6 +50,8 @@ Recent decisions affecting current work:
 - GitHub Pages base path uses CNAME subdomain — no base path config needed (defaults to `/`)
 - Placeholder screenshots ship as intentional branded slots, not gray divs — never `alt="placeholder"`
 - Play Store URL lives in `src/config.ts` as single source of truth; swap placeholder → live URL before Phase 3 completes
+- GitHub Actions deploy.yml uses deploy-pages@v5 with no configure-pages step — CNAME subdomain means base is always /
+- OG image generated with Python PIL when ImageMagick unavailable — placeholder to be replaced before launch
 
 ### Pending Todos
 
@@ -64,5 +66,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-31
-Stopped at: Completed 01-foundation/01-01-PLAN.md (Astro scaffold, Tailwind v4, BaseLayout)
-Resume file: .planning/phases/01-foundation/01-02-PLAN.md
+Stopped at: Completed 01-foundation/01-02-PLAN.md (branded landing page, GitHub Actions deploy, CNAME, OG image)
+Resume file: .planning/phases/02-content/02-01-PLAN.md (Phase 2 begins)
