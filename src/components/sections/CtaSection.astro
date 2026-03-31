@@ -1,1 +1,37 @@
-<section id="cta" class="py-24 px-6 max-w-7xl mx-auto animate-on-scroll"></section>
+---
+import { playStoreUrl } from '../../config';
+---
+
+<section id="cta" class="py-24 sm:py-32 px-6 animate-on-scroll">
+
+  <div class="max-w-3xl mx-auto text-center">
+
+    <!-- Headline -->
+    <h2 class="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-text-primary">
+      Start training today
+    </h2>
+
+    <!-- Supporting text -->
+    <p class="text-text-secondary text-lg mt-4 max-w-xl mx-auto">
+      Free. No account. No paywall. Just open the app and lift.
+    </p>
+
+    <!-- Google Play badge (larger than hero for final conversion push) -->
+    <a
+      href={playStoreUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Get FiveX Strong on Google Play"
+      class="inline-block mt-8"
+    >
+      <img
+        src="/google-play-badge.png"
+        alt="Get it on Google Play"
+        width="220"
+        height="65"
+      />
+    </a>
+
+  </div>
+
+</section>

@@ -1,1 +1,51 @@
-<footer class="py-12 px-6 max-w-7xl mx-auto border-t border-border-subtle"></footer>
+---
+import { playStoreUrl, supportEmail, privacyPolicyUrl } from '../../config';
+const year = new Date().getFullYear();
+---
+
+<footer class="py-12 px-6 border-t border-border-subtle">
+
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
+
+      <!-- Left: App name + copyright -->
+      <div>
+        <p class="font-heading font-bold text-lg text-text-primary">FiveX Strong</p>
+        <p class="text-text-muted text-sm mt-1">&copy; {year} FiveX Strong</p>
+      </div>
+
+      <!-- Right: Links row -->
+      <div class="flex flex-wrap items-center gap-6">
+
+        <!-- Google Play link (FOOT-01) -->
+        <a
+          href={playStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-text-secondary text-sm hover:text-text-primary transition-colors"
+        >
+          Google Play
+        </a>
+
+        <!-- Support email (FOOT-02) -->
+        <a
+          href={`mailto:${supportEmail}`}
+          class="text-text-secondary text-sm hover:text-text-primary transition-colors"
+        >
+          Support
+        </a>
+
+        <!-- Privacy policy (FOOT-03) -->
+        <a
+          href={privacyPolicyUrl}
+          class="text-text-secondary text-sm hover:text-text-primary transition-colors"
+        >
+          Privacy Policy
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</footer>
