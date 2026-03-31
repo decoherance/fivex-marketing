@@ -22,8 +22,8 @@
 | 9 | Touch targets 44x44px minimum | PASS | Lighthouse tap-targets audit: no failures |
 | 10 | Lighthouse performance 95+ (local median) | PASS | Median: 100 (3 runs: 100/100/100) |
 | 11 | Lighthouse accessibility 90+ (local median) | PASS | Median: 100 (3 runs: 100/100/100) |
-| 12 | All assets load on deployed URL (HTTP 200) | PENDING | See Deployed URL section |
-| 13 | Lighthouse 95+/90+ on deployed URL (median) | PENDING | See Lighthouse Deployed section |
+| 12 | All assets load on deployed URL (HTTP 200) | BLOCKED | DNS not configured; site not yet pushed to GitHub. See Deployed URL section |
+| 13 | Lighthouse 95+/90+ on deployed URL (median) | BLOCKED | Depends on #12 — see Deployed URL section |
 
 ---
 
@@ -150,34 +150,81 @@ Lighthouse `tap-targets` audit: score=1 (PASS). No failing tap targets found. Al
 
 ## Lighthouse — Deployed Runs
 
-PENDING — Task 3
+**Status: BLOCKED** — See Deployed URL section for blocker details.
+
+Expected scores based on local validation: Performance 100 / Accessibility 100 (same static files, GitHub Pages CDN adds compression which only helps).
 
 | Run | Performance | Accessibility |
 |-----|-------------|---------------|
 | 1 | — | — |
 | 2 | — | — |
 | 3 | — | — |
-| **Median** | **—** | **—** |
+| **Median** | **TBD** | **TBD** |
 
 ---
 
 ## Deployed URL Asset Check
 
-PENDING — Task 3
+**Status: BLOCKED — GitHub repo and DNS not configured**
+
+Investigation on 2026-03-31:
+
+- DNS lookup for `fivexstrong.decoherance-interactive.com`: `NXDOMAIN` (no DNS record)
+- DNS lookup for `decoherance-interactive.com`: resolves to `185.199.108-111.153` (GitHub Pages IPs) — parent domain is configured
+- `public/CNAME` file: present and correct (`fivexstrong.decoherance-interactive.com`)
+- GitHub Pages deployment: NOT yet deployed — no GitHub remote configured in project
+- `gh repo list`: only `projectslepnir/cpn-api` exists — no fivex marketing site repo
+
+**Root cause:** The project has not yet been pushed to GitHub. The GitHub Actions deploy workflow exists (`.github/workflows/deploy.yml`) and is correctly configured, but needs a GitHub repo to push to.
+
+**To unblock:**
+1. Create a GitHub repo: `gh repo create fivex-marketing-site --public`
+2. Add remote: `git remote add origin https://github.com/projectslepnir/fivex-marketing-site.git`
+3. Push: `git push -u origin master`
+4. Enable GitHub Pages in repo settings (Source: GitHub Actions)
+5. Add CNAME DNS record: `fivexstrong` CNAME `projectslepnir.github.io`
+6. Wait for DNS propagation (~5 min to 24 hrs)
+7. Run deployed asset check and Lighthouse 3x against live URL
 
 ---
 
 ## Pre-Launch TODOs
 
-These items are known, documented, and must be completed before the app launches publicly:
+These items must be completed before the app launches publicly:
 
-1. **Play Store URL** — Swap `PLACEHOLDER_APP_ID` in `src/config.ts` with the real Google Play app ID. All four Play Store badge links will update automatically.
+### Critical (Blocking Launch)
 
-2. **Manual mobile viewport verification** — Open the deployed URL in Chrome DevTools and verify no horizontal scroll at these viewport widths:
+1. **Create GitHub repo and push code** — The codebase has not been pushed to GitHub. No deployment has occurred. Steps:
+   ```bash
+   gh repo create fivex-marketing-site --public
+   git remote add origin https://github.com/projectslepnir/fivex-marketing-site.git
+   git push -u origin master
+   ```
+   Then enable GitHub Pages (Source: GitHub Actions) in the repo settings.
+
+2. **Add CNAME DNS record** — Add a CNAME record at your DNS provider:
+   - Host/Name: `fivexstrong`
+   - Target/Value: `projectslepnir.github.io`
+   This will make `fivexstrong.decoherance-interactive.com` resolve to GitHub Pages.
+
+3. **Deployed URL verification** — Once DNS resolves, run the deployed asset check and Lighthouse 3x:
+   ```bash
+   # Asset check
+   node --input-type=module -e "const html = await (await fetch('https://fivexstrong.decoherance-interactive.com')).text(); console.log('Assets:', html.match(/src=['\"]([^'\"]+\.(png|css|js|woff2))['\"]/)?.length || 'check manually');"
+
+   # Lighthouse (requires Chrome)
+   npx lighthouse https://fivexstrong.decoherance-interactive.com --only-categories=performance,accessibility --output=json --chrome-flags="--headless=new --no-sandbox"
+   ```
+
+4. **Play Store URL** — Swap `PLACEHOLDER_APP_ID` in `src/config.ts` with the real Google Play app ID. All four Play Store badge links will update automatically. Then push and let GitHub Actions deploy.
+
+### Non-Blocking (Before Social Promotion)
+
+5. **Manual mobile viewport verification** — Open the deployed URL in Chrome DevTools and verify no horizontal scroll at these viewport widths:
    - 360px (Android small)
    - 375px (iPhone SE)
    - 768px (tablet)
    - 1280px (desktop)
    Both orientations. Check hero, features, differentiators, and footer sections.
 
-3. **OG image quality** — Replace the Python-generated placeholder `og-image.png` with a designed social share image before social promotion.
+6. **OG image quality** — Replace the Python-generated placeholder `og-image.png` with a designed social share image before social promotion.
