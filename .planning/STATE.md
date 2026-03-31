@@ -5,32 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-03-28)
 
 **Core value:** Clearly communicate what FiveX Strong does and get visitors to download the app from Google Play.
-**Current focus:** Phase 1 — Foundation
+**Current focus:** Phase 2 — Page Sections
 
 ## Current Position
 
-Phase: 1 of 3 (Foundation)
-Plan: 2 of 2 in current phase (phase complete)
-Status: Phase 1 complete
-Last activity: 2026-03-31 — 01-02 complete (branded landing page, GitHub Actions deploy, CNAME, OG image)
+Phase: 2 of 3 (Page Sections)
+Plan: 1 of 3 complete in current phase
+Status: In progress
+Last activity: 2026-03-31 — 02-01 complete (hero section, scroll animations, Lucide icons, section stubs)
 
-Progress: [████░░░░░░] 40%
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 4 min
-- Total execution time: 7 min
+- Total plans completed: 3
+- Average duration: 3 min
+- Total execution time: 9 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 7 min | 4 min |
+| 02-page-sections | 1 | 2 min | 2 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5 min), 01-02 (2 min)
+- Last 5 plans: 01-01 (5 min), 01-02 (2 min), 02-01 (2 min)
 - Trend: Fast
 
 *Updated after each plan completion*
@@ -52,6 +53,9 @@ Recent decisions affecting current work:
 - Play Store URL lives in `src/config.ts` as single source of truth; swap placeholder → live URL before Phase 3 completes
 - GitHub Actions deploy.yml uses deploy-pages@v5 with no configure-pages step — CNAME subdomain means base is always /
 - OG image generated with Python PIL when ImageMagick unavailable — placeholder to be replaced before launch
+- [Phase 02-page-sections]: Phone mockup is pure CSS using brand colors — no external image needed; compact mobile dimensions (160x180px) keep hero above fold at 375px
+- [Phase 02-page-sections]: Section component pattern: each page section is a self-contained .astro component in src/components/sections/
+- [Phase 02-page-sections]: Scroll animation pattern: add animate-on-scroll class to section root; IntersectionObserver in BaseLayout handles is-visible class
 
 ### Pending Todos
 
@@ -66,5 +70,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-31
-Stopped at: Completed 01-foundation/01-02-PLAN.md (branded landing page, GitHub Actions deploy, CNAME, OG image)
-Resume file: .planning/phases/02-content/02-01-PLAN.md (Phase 2 begins)
+Stopped at: Completed 02-page-sections/02-01-PLAN.md (hero section, scroll animations, Lucide icons, section stubs)
+Resume file: .planning/phases/02-page-sections/02-02-PLAN.md
