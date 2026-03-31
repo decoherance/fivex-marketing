@@ -1,1 +1,62 @@
-<section id="features" class="py-24 px-6 max-w-7xl mx-auto animate-on-scroll"></section>
+---
+import Layers from "@lucide/astro/icons/layers";
+import PenLine from "@lucide/astro/icons/pen-line";
+import ChartBar from "@lucide/astro/icons/chart-bar";
+import WifiOff from "@lucide/astro/icons/wifi-off";
+
+const features = [
+  {
+    icon: Layers,
+    title: "Pre-built programmes",
+    description:
+      "Jump straight into proven 5x5 strength routines. No guesswork — just pick a programme and start lifting.",
+  },
+  {
+    icon: PenLine,
+    title: "Build your own",
+    description:
+      "Create custom programmes tailored to your goals. Choose exercises, sets, and reps that work for you.",
+  },
+  {
+    icon: ChartBar,
+    title: "Track your progress",
+    description:
+      "Every session logged automatically. See your history, track personal records, and watch your strength grow.",
+  },
+  {
+    icon: WifiOff,
+    title: "Works offline",
+    description:
+      "No Wi-Fi at the gym? No problem. Everything works offline — your data lives on your device.",
+  },
+];
+---
+
+<section id="features" class="py-24 px-6 max-w-7xl mx-auto animate-on-scroll">
+  <div class="text-center">
+    <h2
+      class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-text-primary"
+    >
+      What you get
+    </h2>
+    <p class="text-text-secondary text-lg mt-3 max-w-2xl mx-auto">
+      Everything you need to train stronger
+    </p>
+  </div>
+
+  <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+    {
+      features.map(({ icon: Icon, title, description }) => (
+        <div class="bg-surface-card rounded-xl p-6 border border-border-subtle">
+          <Icon size={28} class="text-brand-green mb-4" />
+          <h3 class="font-heading font-bold text-lg text-text-primary">
+            {title}
+          </h3>
+          <p class="text-text-secondary text-sm mt-2 leading-relaxed">
+            {description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>
