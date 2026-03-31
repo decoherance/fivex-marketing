@@ -1,5 +1,5 @@
 ---
-import { playStoreUrl } from '../../config';
+import { playStoreUrl, heroVideoUrl } from '../../config';
 ---
 
 <section class="relative min-h-screen overflow-hidden flex items-center">
@@ -7,10 +7,15 @@ import { playStoreUrl } from '../../config';
   <!-- Gradient background layer (always visible) -->
   <div class="absolute inset-0 bg-gradient-to-br from-surface-base via-[#0a1a0f] to-[#001a0d]" aria-hidden="true"></div>
 
-  <!-- Video slot (hidden until video provided) -->
-  <video class="absolute inset-0 w-full h-full object-cover hidden" autoplay muted loop playsinline aria-hidden="true">
-    <!-- <source src="/hero-video.mp4" type="video/mp4"> -->
-  </video>
+  <!-- Video background (shown when heroVideoUrl is set) -->
+  {heroVideoUrl && (
+    <div class="absolute inset-0" aria-hidden="true">
+      <video class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" autoplay muted loop playsinline>
+        <source src={heroVideoUrl} type="video/webm" />
+      </video>
+      <div class="absolute inset-0 bg-brand-green/15 mix-blend-multiply"></div>
+    </div>
+  )}
 
   <!-- Content layer -->
   <div class="relative z-10 max-w-7xl mx-auto px-6 py-10 sm:py-28 w-full">
