@@ -13,68 +13,83 @@ import { playStoreUrl } from '../../config';
   </video>
 
   <!-- Content layer -->
-  <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 sm:py-28 w-full">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-10 sm:py-28 w-full">
 
-    <!-- Two-column grid (desktop) -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <!-- Mobile: 3-row stack (headline → phone → CTA). Desktop: 2-column (text+CTA left, phone right) -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-16 items-center">
 
-      <!-- Left column: text + CTA -->
-      <div>
-        <!-- Subtle green accent bar -->
-        <div class="w-12 h-1 rounded-full bg-brand-green opacity-60 mb-6"></div>
-
+      <!-- Headline + value prop (mobile: row 1, desktop: part of left column) -->
+      <div class="text-center lg:text-left lg:order-1">
         <!-- Uppercase label -->
-        <p class="text-brand-green text-xs uppercase tracking-widest font-medium mb-4">Strength Training App</p>
+        <p class="text-brand-green text-xs uppercase tracking-widest font-medium mb-2 sm:mb-4">Strength Training App</p>
 
         <!-- Headline -->
-        <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary leading-tight">
+        <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary leading-tight">
           FiveX Strong
         </h1>
 
         <!-- Value proposition -->
-        <p class="text-text-secondary text-lg sm:text-xl mt-6 max-w-lg leading-relaxed">
+        <p class="text-text-secondary text-base sm:text-xl mt-3 sm:mt-6 max-w-lg leading-relaxed mx-auto lg:mx-0">
           The simplest way to run a 5x5 strength programme. Pick a workout, load the bar, and lift.
         </p>
 
-        <!-- Google Play badge -->
+        <!-- Google Play badge (hidden on mobile, shown on desktop alongside text) -->
         <a
           href={playStoreUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Get FiveX Strong on Google Play"
-          class="inline-block mt-8"
+          class="hidden lg:inline-block mt-8"
         >
           <img
             src="/google-play-badge.png"
             alt="Get it on Google Play"
-            width="200"
-            height="59"
+            width="280"
+            height="83"
           />
         </a>
       </div>
 
-      <!-- Right column: phone mockup (pure CSS, branded) -->
-      <div class="flex justify-center lg:justify-end">
-        <div class="relative w-[160px] h-[180px] sm:w-[180px] sm:h-[200px] lg:w-[260px] lg:h-[520px] rounded-[2.5rem] border-4 border-border bg-surface-card shadow-[0_0_60px_rgba(0,230,118,0.12)] flex flex-col overflow-hidden mx-auto">
+      <!-- Phone mockup (mobile: row 2, desktop: right column) -->
+      <div class="flex justify-center lg:justify-end lg:order-2">
+        <div class="relative w-[140px] h-[280px] sm:w-[220px] sm:h-[440px] lg:w-[260px] lg:h-[520px] rounded-[2rem] sm:rounded-[2.5rem] border-4 border-border bg-surface-card shadow-[0_0_60px_rgba(0,230,118,0.12)] flex flex-col overflow-hidden mx-auto">
 
           <!-- Status bar mock -->
-          <div class="h-6 lg:h-8 bg-surface-raised flex items-center justify-center">
-            <div class="w-12 lg:w-16 h-3 lg:h-4 rounded-full bg-surface-base"></div>
+          <div class="h-5 sm:h-6 lg:h-8 bg-surface-raised flex items-center justify-center">
+            <div class="w-10 sm:w-12 lg:w-16 h-2.5 sm:h-3 lg:h-4 rounded-full bg-surface-base"></div>
           </div>
 
           <!-- Screen content -->
-          <div class="flex-1 flex flex-col items-center justify-center gap-2 px-4">
-            <span class="text-brand-green text-3xl lg:text-5xl font-heading font-bold">5X</span>
-            <span class="text-text-secondary text-[10px] lg:text-xs text-center uppercase tracking-widest">FiveX Strong</span>
-            <div class="w-6 lg:w-8 h-0.5 lg:h-1 rounded bg-brand-green opacity-60"></div>
+          <div class="flex-1 flex flex-col items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4">
+            <span class="text-brand-green text-2xl sm:text-3xl lg:text-5xl font-heading font-bold">5X</span>
+            <span class="text-text-secondary text-[8px] sm:text-[10px] lg:text-xs text-center uppercase tracking-widest">FiveX Strong</span>
+            <div class="w-5 sm:w-6 lg:w-8 h-0.5 lg:h-1 rounded bg-brand-green opacity-60"></div>
           </div>
 
           <!-- Home bar -->
-          <div class="h-6 lg:h-8 flex items-center justify-center">
-            <div class="w-14 lg:w-20 h-0.5 lg:h-1 rounded-full bg-border"></div>
+          <div class="h-5 sm:h-6 lg:h-8 flex items-center justify-center">
+            <div class="w-12 sm:w-14 lg:w-20 h-0.5 lg:h-1 rounded-full bg-border"></div>
           </div>
 
         </div>
+      </div>
+
+      <!-- CTA badge (mobile only: row 3, below phone) -->
+      <div class="flex justify-center lg:hidden lg:order-3">
+        <a
+          href={playStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Get FiveX Strong on Google Play"
+          class="inline-block"
+        >
+          <img
+            src="/google-play-badge.png"
+            alt="Get it on Google Play"
+            width="280"
+            height="83"
+          />
+        </a>
       </div>
 
     </div>
