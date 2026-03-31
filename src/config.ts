@@ -7,3 +7,6 @@ export const ogTitle = 'FiveX Strong — Strength training, simplified';
 
 export const ogDescription =
   'The simplest way to run a 5x5 strength programme. Just pick a workout and lift.';
+
+export const supportEmail = 'support@PLACEHOLDER.com';
+export const privacyPolicyUrl = '/privacy'; // placeholder until privacy page built
