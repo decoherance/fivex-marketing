@@ -28,7 +28,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. The live URL loads without 404s on assets (confirming base path is correctly configured)
   4. Brand colors (#00E676, #00BFA5, #D1C4E9), Space Grotesk, and Inter are available as Tailwind tokens and render correctly in the browser
   5. The page `<head>` includes correct OG title, description, and image meta tags
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 01-01-PLAN.md — Scaffold Astro project with Tailwind v4, design tokens, fonts, and base layout with OG meta
+- [ ] 01-02-PLAN.md — Branded placeholder landing page, Play Store badge, GitHub Actions CI/CD, and static assets
 
 ### Phase 2: Page Sections
 **Goal**: Every page section is built and assembled in index.astro so a visitor can scroll the complete page from hero to footer
@@ -61,6 +64,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 0/2 | Not started | - |
 | 2. Page Sections | 0/TBD | Not started | - |
 | 3. Pre-Launch Validation | 0/TBD | Not started | - |
