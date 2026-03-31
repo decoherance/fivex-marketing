@@ -4,7 +4,7 @@ import { playStoreUrl } from '../config';
 
 <div
   id="sticky-cta"
-  class="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-surface-base/95 backdrop-blur-sm border-t border-border-subtle py-3 px-4 flex justify-center transition-opacity duration-300"
+  class="fixed bottom-0 left-0 right-0 z-50 lg:hidden py-4 px-4 flex justify-center transition-opacity duration-300 opacity-0 pointer-events-none"
 >
   <a
     href={playStoreUrl}
@@ -15,28 +15,39 @@ import { playStoreUrl } from '../config';
     <img
       src="/google-play-badge.png"
       alt="Get it on Google Play"
-      width="180"
-      height="53"
+      width="220"
+      height="65"
     />
   </a>
 </div>
 
 <script>
   const stickyCta = document.getElementById('sticky-cta');
-  const footer = document.querySelector('footer');
-  if (stickyCta && footer) {
-    const footerObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            stickyCta.classList.add('opacity-0', 'pointer-events-none');
-          } else {
-            stickyCta.classList.remove('opacity-0', 'pointer-events-none');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    footerObserver.observe(footer);
+  const ctaSection = document.getElementById('cta');
+  if (stickyCta) {
+    let ctaVisible = false;
+    const scrollThreshold = 300;
+
+    function updateVisibility() {
+      const scrolledPastThreshold = window.scrollY > scrollThreshold;
+      const shouldShow = scrolledPastThreshold && !ctaVisible;
+      stickyCta.classList.toggle('opacity-0', !shouldShow);
+      stickyCta.classList.toggle('pointer-events-none', !shouldShow);
+    }
+
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+
+    if (ctaSection) {
+      const ctaObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            ctaVisible = entry.isIntersecting;
+            updateVisibility();
+          });
+        },
+        { threshold: 0.1 }
+      );
+      ctaObserver.observe(ctaSection);
+    }
   }
 </script>
