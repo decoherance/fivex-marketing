@@ -19,9 +19,9 @@
 | 6 | No horizontal scroll at 360/375/768/1280px | PASS | See Viewport section |
 | 7 | Body text 16px+ at 360px | PASS | See Typography section |
 | 8 | Sticky CTA bar visible on mobile, hides on footer | PASS | See Sticky CTA section |
-| 9 | Touch targets 44x44px minimum | PENDING | See Lighthouse section |
-| 10 | Lighthouse performance 95+ (local median) | PENDING | See Lighthouse Local section |
-| 11 | Lighthouse accessibility 90+ (local median) | PENDING | See Lighthouse Local section |
+| 9 | Touch targets 44x44px minimum | PASS | Lighthouse tap-targets audit: no failures |
+| 10 | Lighthouse performance 95+ (local median) | PASS | Median: 100 (3 runs: 100/100/100) |
+| 11 | Lighthouse accessibility 90+ (local median) | PASS | Median: 100 (3 runs: 100/100/100) |
 | 12 | All assets load on deployed URL (HTTP 200) | PENDING | See Deployed URL section |
 | 13 | Lighthouse 95+/90+ on deployed URL (median) | PENDING | See Lighthouse Deployed section |
 
@@ -90,9 +90,11 @@ Classes ensuring no horizontal overflow:
 grep -oP 'w-\[\d+px\]' dist/index.html | sort -u
 ```
 Results:
+- `w-[140px]` — phone mockup width at mobile breakpoint
+- `w-[160px]` — phone mockup width at sm breakpoint
 - `w-[180px]` — sticky CTA badge (fits within 360px viewport)
-- `w-[200px]` — hero badge
-- `w-[220px]` — footer CTA badge
+- `w-[220px]` — phone mockup at sm, footer CTA badge
+- `w-[260px]` — phone mockup at lg breakpoint
 All widths are safely below the 340px threshold (360px minus 20px padding).
 
 ### Body Padding for Sticky CTA
@@ -122,20 +124,27 @@ The hero value proposition text (`simplest way`) uses `text-lg` (18px): PASS
 
 ## Lighthouse — Local Runs
 
-PENDING — Task 2
+Lighthouse 12.8.2 against `http://localhost:4323` (Astro production preview, port 4323).
+Chrome 147 headless. No Vite dev client in production preview build.
+
+**Note on initial low scores:** The first attempt against port 4321 returned Performance 71 / Accessibility 94. Investigation revealed port 4321 was serving a stale Vite dev mode process (not the production preview), which injected `@vite/client` (294KB unminified JS) and served assets without compression. These scores are not representative. Production preview on port 4323 shows the actual built assets.
+
+**Inline fixes applied before final runs:**
+1. [Rule 1 - Bug] Color contrast: `text-text-muted` had 4.05:1 ratio (below 4.5:1 minimum). Fixed `--color-text-muted` from `#717171` to `#808080` (5.01:1 ratio). File: `src/styles/global.css`.
+2. [Rule 2 - LCP Optimization] Added `fetchpriority="high"` to both hero badge images (the LCP element in mobile viewport). File: `src/components/sections/HeroSection.astro`.
 
 | Run | Performance | Accessibility |
 |-----|-------------|---------------|
-| 1 | — | — |
-| 2 | — | — |
-| 3 | — | — |
-| **Median** | **—** | **—** |
+| 1 | 100 | 100 |
+| 2 | 100 | 100 |
+| 3 | 100 | 100 |
+| **Median** | **100** | **100** |
 
-**Threshold:** Performance 95+ / Accessibility 90+
+**Threshold:** Performance 95+ / Accessibility 90+ — BOTH PASS
 
 ### Touch Targets
 
-PENDING — Task 2
+Lighthouse `tap-targets` audit: score=1 (PASS). No failing tap targets found. All interactive elements meet the 44x44px minimum.
 
 ---
 

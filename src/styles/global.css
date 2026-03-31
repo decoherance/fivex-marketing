@@ -20,7 +20,7 @@
   /* Text colors */
   --color-text-primary: #f5f5f5;
   --color-text-secondary: #b0b0b0;
-  --color-text-muted: #717171;
+  --color-text-muted: #808080;
 
   /* Font family override — Inter as default sans */
   --font-sans: var(--font-inter);
