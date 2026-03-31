@@ -1,1 +1,45 @@
-<section id="differentiators" class="py-24 px-6 max-w-7xl mx-auto animate-on-scroll"></section>
+---
+const differentiators = [
+  {
+    bold: "No account needed",
+    support: "Open the app and start training. No sign-up, no email, no friction.",
+  },
+  {
+    bold: "Free forever",
+    support:
+      "No subscriptions, no premium tier, no paywall. Every feature is yours from day one.",
+  },
+  {
+    bold: "Your data stays yours",
+    support:
+      "Everything is stored locally on your device. No cloud, no tracking, no servers.",
+  },
+];
+---
+
+<section
+  id="differentiators"
+  class="py-24 px-6 max-w-7xl mx-auto animate-on-scroll"
+>
+  <div class="text-center">
+    <h2
+      class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-text-primary"
+    >
+      Why FiveX Strong
+    </h2>
+    <p class="text-text-secondary text-lg mt-3 max-w-2xl mx-auto">
+      Training should be simple. We kept it that way.
+    </p>
+  </div>
+
+  <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+    {
+      differentiators.map(({ bold, support }) => (
+        <div class="border-l-4 border-brand-green bg-surface-card rounded-lg p-6">
+          <p class="font-heading font-bold text-xl text-text-primary">{bold}</p>
+          <p class="text-text-secondary text-sm mt-2">{support}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
