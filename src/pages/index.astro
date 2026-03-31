@@ -1,50 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { playStoreUrl } from '../config';
+import HeroSection from '../components/sections/HeroSection.astro';
+import FeaturesSection from '../components/sections/FeaturesSection.astro';
+import DifferentiatorsSection from '../components/sections/DifferentiatorsSection.astro';
+import ScreenshotsSection from '../components/sections/ScreenshotsSection.astro';
+import CtaSection from '../components/sections/CtaSection.astro';
+import FooterSection from '../components/sections/FooterSection.astro';
 ---
 
 <BaseLayout>
-  <main class="max-w-2xl mx-auto px-6 py-16 sm:py-24 flex flex-col items-center text-center">
-
-    <!-- Decorative accent bar -->
-    <div class="w-12 h-1 rounded-full bg-brand-green opacity-60 mb-10"></div>
-
-    <!-- App name -->
-    <h1 class="font-heading text-5xl sm:text-7xl font-bold tracking-tight text-text-primary">
-      FiveX Strong
-    </h1>
-
-    <!-- Green tagline -->
-    <p class="text-brand-green text-xl sm:text-2xl font-medium mt-4">
-      Strength training, simplified
-    </p>
-
-    <!-- Benefit description -->
-    <p class="text-text-secondary text-lg mt-6 max-w-lg">
-      The simplest way to run a 5x5 strength programme. Pick a workout, load the bar, and lift.
-      No account needed — your data stays on your device.
-    </p>
-
-    <!-- Google Play badge -->
-    <a
-      href={playStoreUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Get FiveX Strong on Google Play"
-      class="mt-8"
-    >
-      <img
-        src="/google-play-badge.png"
-        alt="Get it on Google Play"
-        width="200"
-        height="59"
-      />
-    </a>
-
-    <!-- Positioning footer line -->
-    <p class="text-text-muted text-sm mt-16">
-      Free. No account. No paywall.
-    </p>
-
-  </main>
+  <HeroSection />
+  <FeaturesSection />
+  <DifferentiatorsSection />
+  <ScreenshotsSection />
+  <CtaSection />
+  <FooterSection />
 </BaseLayout>
