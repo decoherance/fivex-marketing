@@ -43,7 +43,11 @@ Plans:
   3. Visitor sees four feature highlights (pre-defined programmes, custom programmes, history tracking, offline/no-internet) in the features section
   4. "No account needed," "free forever, no paywall," and "data stays on your device" each appear as distinct, prominent callouts — not buried in a features list
   5. Visitor sees a closing CTA section and a footer with a Play Store link, support email, and privacy policy link
-**Plans**: TBD
+**Plans**: 0/3 plans complete
+Plans:
+- [ ] 02-01-PLAN.md — Setup infrastructure (Lucide, config, scroll animations) + Hero section with two-column layout, phone mockup, gradient + video slot
+- [ ] 02-02-PLAN.md — Features section (2x2 icon card grid) + Differentiators section (3 banner-style callout cards)
+- [ ] 02-03-PLAN.md — Screenshots section (placeholder slots) + CTA section + Footer (Play Store, email, privacy links)
 
 ### Phase 3: Pre-Launch Validation
 **Goal**: The site passes all quality gates and is safe to share publicly
@@ -65,5 +69,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 0/2 | Complete    | 2026-03-31 |
-| 2. Page Sections | 0/TBD | Not started | - |
+| 2. Page Sections | 0/3 | Not started | - |
 | 3. Pre-Launch Validation | 0/TBD | Not started | - |
