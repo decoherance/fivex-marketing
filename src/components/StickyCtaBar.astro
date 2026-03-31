@@ -1,0 +1,42 @@
+---
+import { playStoreUrl } from '../config';
+---
+
+<div
+  id="sticky-cta"
+  class="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-surface-base/95 backdrop-blur-sm border-t border-border-subtle py-3 px-4 flex justify-center transition-opacity duration-300"
+>
+  <a
+    href={playStoreUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Get FiveX Strong on Google Play"
+  >
+    <img
+      src="/google-play-badge.png"
+      alt="Get it on Google Play"
+      width="180"
+      height="53"
+    />
+  </a>
+</div>
+
+<script>
+  const stickyCta = document.getElementById('sticky-cta');
+  const footer = document.querySelector('footer');
+  if (stickyCta && footer) {
+    const footerObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            stickyCta.classList.add('opacity-0', 'pointer-events-none');
+          } else {
+            stickyCta.classList.remove('opacity-0', 'pointer-events-none');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    footerObserver.observe(footer);
+  }
+</script>
