@@ -1,3 +1,18 @@
+---
+const baseUrl = 'https://github.com/decoherance/fivex-marketing/releases/download/assets';
+
+const screenshots = [
+  { src: `${baseUrl}/screenshot-dashboard.png`, alt: 'FiveX Strong dashboard screen' },
+  { src: `${baseUrl}/screenshot-program.png`, alt: 'FiveX Strong programme selection screen' },
+  { src: `${baseUrl}/screenshot-exercise-list.png`, alt: 'FiveX Strong exercise list screen' },
+  { src: `${baseUrl}/screenshot-workout.png`, alt: 'FiveX Strong active workout screen' },
+  { src: `${baseUrl}/screenshot-track-progress.png`, alt: 'FiveX Strong progress tracking screen' },
+  { src: `${baseUrl}/screenshot-progression.png`, alt: 'FiveX Strong progression overview screen' },
+  { src: `${baseUrl}/screenshot-history.png`, alt: 'FiveX Strong workout history screen' },
+  { src: `${baseUrl}/screenshot-pr.png`, alt: 'FiveX Strong personal records screen' },
+];
+---
+
 <section id="screenshots" class="py-12 sm:py-24 px-6 max-w-7xl mx-auto animate-on-scroll">
 
   <!-- Section heading -->
@@ -5,36 +20,21 @@
     See it in action
   </h2>
   <p class="text-text-secondary text-lg mt-3 max-w-2xl mx-auto text-center">
-    Real screenshots coming soon
+    A look inside the app
   </p>
 
-  <!-- Placeholder screenshot slots -->
+  <!-- Screenshot gallery -->
   <div class="mt-8 sm:mt-12 flex flex-wrap justify-center gap-4 sm:gap-6">
-
-    <!-- Slot 1: Home -->
-    <div class="aspect-[9/19] w-full max-w-[160px] sm:max-w-[180px] rounded-2xl border-2 border-dashed border-border bg-surface-card flex flex-col items-center justify-center gap-2 p-4">
-      <span class="text-brand-green font-heading font-bold text-lg">5X</span>
-      <span class="text-text-muted text-[10px] uppercase tracking-widest">Home</span>
-    </div>
-
-    <!-- Slot 2: Workout -->
-    <div class="aspect-[9/19] w-full max-w-[160px] sm:max-w-[180px] rounded-2xl border-2 border-dashed border-border bg-surface-card flex flex-col items-center justify-center gap-2 p-4">
-      <span class="text-brand-green font-heading font-bold text-lg">5X</span>
-      <span class="text-text-muted text-[10px] uppercase tracking-widest">Workout</span>
-    </div>
-
-    <!-- Slot 3: History -->
-    <div class="aspect-[9/19] w-full max-w-[160px] sm:max-w-[180px] rounded-2xl border-2 border-dashed border-border bg-surface-card flex flex-col items-center justify-center gap-2 p-4">
-      <span class="text-brand-green font-heading font-bold text-lg">5X</span>
-      <span class="text-text-muted text-[10px] uppercase tracking-widest">History</span>
-    </div>
-
-    <!-- Slot 4: Programme -->
-    <div class="aspect-[9/19] w-full max-w-[160px] sm:max-w-[180px] rounded-2xl border-2 border-dashed border-border bg-surface-card flex flex-col items-center justify-center gap-2 p-4">
-      <span class="text-brand-green font-heading font-bold text-lg">5X</span>
-      <span class="text-text-muted text-[10px] uppercase tracking-widest">Programme</span>
-    </div>
-
+    {screenshots.map((s) => (
+      <img
+        src={s.src}
+        alt={s.alt}
+        width="180"
+        height="380"
+        loading="lazy"
+        class="w-full max-w-[160px] sm:max-w-[180px] rounded-2xl border-2 border-border bg-surface-card object-cover"
+      />
+    ))}
   </div>
 
 </section>
