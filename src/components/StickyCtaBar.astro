@@ -1,25 +1,12 @@
 ---
-import { playStoreUrl } from '../config';
+import CtaButton from './CtaButton.astro';
 ---
 
 <div
   id="sticky-cta"
-  class="fixed bottom-0 left-0 right-0 z-50 lg:hidden py-4 px-4 flex justify-center transition-opacity duration-300 opacity-0 pointer-events-none"
+  class="fixed bottom-0 left-0 right-0 z-50 lg:hidden py-3 px-4 flex justify-center transition-opacity duration-300 opacity-0 pointer-events-none"
 >
-  <a
-    href={playStoreUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Get FiveX Strong on Google Play"
-    data-umami-event="cta-sticky"
-  >
-    <img
-      src="/google-play-badge.png"
-      alt="Get it on Google Play"
-      width="220"
-      height="65"
-    />
-  </a>
+  <CtaButton event="cta-sticky" size="sm" />
 </div>
 
 <script>

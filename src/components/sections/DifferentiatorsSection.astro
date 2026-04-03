@@ -7,17 +7,12 @@ const differentiators = [
   {
     bold: "Free forever",
     support:
-      "No subscriptions, All features available for free. Every feature is yours from day one.",
-  },
-  {
-    bold: "Become Elite",
-    support:
-      "Unlock additional pre-defined programs, custom program slots and themes for a small fee and support the developer",
+      "No subscriptions. Every feature is yours from day one.",
   },
   {
     bold: "Your data stays yours",
     support:
-      "Everything is stored locally on your device. No cloud, no tracking, no servers. Your data never leaves your device",
+      "Everything is stored locally on your device. No cloud, no tracking, no servers.",
   },
 ];
 ---
@@ -37,7 +32,7 @@ const differentiators = [
     </p>
   </div>
 
-  <div class="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+  <div class="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
     {
       differentiators.map(({ bold, support }) => (
         <div class="border-l-4 border-brand-green bg-surface-card rounded-lg p-6">
@@ -46,5 +41,13 @@ const differentiators = [
         </div>
       ))
     }
+  </div>
+
+  <!-- Become Elite — separate soft upsell -->
+  <div class="mt-6 sm:mt-8 max-w-2xl mx-auto text-center bg-surface-card border border-border-subtle rounded-lg p-6">
+    <p class="font-heading font-bold text-lg text-brand-green">Want more? Go Elite</p>
+    <p class="text-text-secondary text-sm mt-2">
+      Unlock extra pre-built programmes, additional custom programme slots, and themes for a small fee — and support the developer.
+    </p>
   </div>
 </section>

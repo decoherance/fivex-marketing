@@ -1,5 +1,6 @@
 ---
-import { playStoreUrl, heroVideoUrl } from '../../config';
+import { heroVideoUrl } from '../../config';
+import CtaButton from '../CtaButton.astro';
 ---
 
 <section class="relative min-h-screen overflow-hidden flex items-center">
@@ -31,11 +32,11 @@ import { playStoreUrl, heroVideoUrl } from '../../config';
         </h1>
 
         <!-- Tagline -->
-        <p class="text-brand-green text-xs lg:text-sm uppercase tracking-widest font-medium mb-2 sm:mb-4">OWN YOUR WORKOUT </p>
+        <p class="text-brand-green text-xs lg:text-sm uppercase tracking-widest font-medium mb-2 sm:mb-4">FREE. PRIVATE. NO ACCOUNT.</p>
 
         <!-- Value proposition -->
         <p class="text-text-secondary text-base sm:text-xl lg:text-2xl mt-3 sm:mt-6 max-w-xl leading-relaxed mx-auto lg:mx-0 lg:ml-auto">
-          The simplest way to run a strength program and track your progress. Pick a workout, load the bar, lift, become 5x Stronger.
+          The strength tracker that doesn't track you. Pick a programme, load the bar, lift — your data never leaves your phone.
         </p>
 
         <!-- Trust signals -->
@@ -54,23 +55,10 @@ import { playStoreUrl, heroVideoUrl } from '../../config';
           </span>
         </div>
 
-        <!-- Google Play badge (hidden on mobile, shown on desktop alongside text) -->
-        <a
-          href={playStoreUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Get FiveX Strong on Google Play"
-          data-umami-event="cta-hero-desktop"
-          class="hidden lg:block mt-10 ml-auto w-fit -mr-5"
-        >
-          <img
-            src="/google-play-badge.png"
-            alt="Get it on Google Play"
-            width="320"
-            height="95"
-            fetchpriority="high"
-          />
-        </a>
+        <!-- Desktop CTA -->
+        <div class="hidden lg:flex mt-10 justify-end">
+          <CtaButton event="cta-hero-desktop" size="lg" />
+        </div>
       </div>
 
       <!-- Phone mockup (mobile: row 2, desktop: right column) -->
@@ -117,22 +105,7 @@ import { playStoreUrl, heroVideoUrl } from '../../config';
 
       <!-- CTA badge (mobile only: row 3, below phone) -->
       <div class="flex justify-center lg:hidden lg:order-3">
-        <a
-          href={playStoreUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Get FiveX Strong on Google Play"
-          data-umami-event="cta-hero-mobile"
-          class="inline-block"
-        >
-          <img
-            src="/google-play-badge.png"
-            alt="Get it on Google Play"
-            width="220"
-            height="65"
-            fetchpriority="high"
-          />
-        </a>
+        <CtaButton event="cta-hero-mobile" size="lg" />
       </div>
 
     </div>

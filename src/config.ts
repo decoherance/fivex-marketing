@@ -1,12 +1,12 @@
-export const siteUrl = 'https://decoherance-interactive.com';
+export const siteUrl = 'https://fivex.decoherance-interactive.com';
 
 export const playStoreUrl =
   'https://play.google.com/store/apps/details?id=PLACEHOLDER_APP_ID';
 
-export const ogTitle = 'FiveX Strong — Own your workouts';
+export const ogTitle = 'FiveX Strong — Free, Private Strength Tracker';
 
 export const ogDescription =
-  'The simplest way to run a strength programme. Just pick a workout and lift.';
+  'The simplest way to run a strength programme. Free forever, no account needed, no data leaves your phone.';
 
 export const heroVideoUrl = 'https://github.com/decoherance/fivex-marketing/releases/download/assets/hero.webm';
 
