@@ -1,0 +1,64 @@
+---
+import Check from "@lucide/astro/icons/check";
+import X from "@lucide/astro/icons/x";
+
+const rows = [
+  { feature: "Free forever", fivex: true, others: false },
+  { feature: "No account required", fivex: true, others: false },
+  { feature: "Works fully offline", fivex: true, others: false },
+  { feature: "Data stays on your device", fivex: true, others: false },
+  { feature: "No data sold to third parties", fivex: true, others: false },
+  { feature: "Custom programs", fivex: true, others: "Paywalled" },
+  { feature: "Progress tracking & PRs", fivex: true, others: "Paywalled" },
+];
+---
+
+<section class="py-12 sm:py-24 px-6 max-w-4xl mx-auto animate-on-scroll">
+
+  <div class="text-center">
+    <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">
+      How FiveX Strong compares
+    </h2>
+    <p class="text-text-secondary text-lg sm:text-xl mt-3 max-w-2xl mx-auto">
+      Other trackers profit twice — once from your subscription, again from your data. We don't.
+    </p>
+  </div>
+
+  <div class="mt-8 sm:mt-12 overflow-x-auto">
+    <table class="w-full border-collapse">
+      <thead>
+        <tr>
+          <th class="text-left text-text-secondary text-sm sm:text-base font-medium px-4 py-3"></th>
+          <th class="text-center px-4 py-3">
+            <span class="font-heading font-bold text-brand-green text-base sm:text-lg">FiveX Strong</span>
+          </th>
+          <th class="text-center px-4 py-3">
+            <span class="font-heading font-bold text-text-muted text-base sm:text-lg">Other trackers</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(({ feature, fivex, others }, i) => (
+          <tr class:list={[i % 2 === 0 ? "bg-surface-card" : ""]}>
+            <td class="px-4 py-3 text-text-primary text-sm sm:text-base font-medium rounded-l-lg">{feature}</td>
+            <td class="px-4 py-3 text-center">
+              {fivex === true ? (
+                <Check size={20} class="text-brand-green mx-auto" />
+              ) : (
+                <span class="text-text-muted text-sm">{fivex}</span>
+              )}
+            </td>
+            <td class="px-4 py-3 text-center rounded-r-lg">
+              {others === false ? (
+                <X size={20} class="text-red-400 mx-auto" />
+              ) : (
+                <span class="text-text-muted text-sm">{others}</span>
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+</section>
