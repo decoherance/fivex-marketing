@@ -24,19 +24,35 @@ import { playStoreUrl, heroVideoUrl } from '../../config';
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-16 items-center">
 
       <!-- Headline + value prop (mobile: row 1, desktop: part of left column) -->
-      <div class="text-center lg:text-left lg:order-1">
+      <div class="text-center lg:text-right lg:order-1">
         <!-- Headline -->
-        <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary leading-tight">
+        <h1 class="font-heading text-4xl sm:text-6xl lg:text-8xl font-bold tracking-tight text-text-primary leading-tight">
           FiveX Strong
         </h1>
 
         <!-- Tagline -->
-        <p class="text-brand-green text-xs uppercase tracking-widest font-medium mb-2 sm:mb-4">OWN YOUR WORKOUT </p>
+        <p class="text-brand-green text-xs lg:text-sm uppercase tracking-widest font-medium mb-2 sm:mb-4">OWN YOUR WORKOUT </p>
 
         <!-- Value proposition -->
-        <p class="text-text-secondary text-base sm:text-xl mt-3 sm:mt-6 max-w-lg leading-relaxed mx-auto lg:mx-0">
+        <p class="text-text-secondary text-base sm:text-xl lg:text-2xl mt-3 sm:mt-6 max-w-xl leading-relaxed mx-auto lg:mx-0 lg:ml-auto">
           The simplest way to run a strength program and track your progress. Pick a workout, load the bar, lift, become 5x Stronger.
         </p>
+
+        <!-- Trust signals -->
+        <div class="flex flex-wrap justify-center lg:justify-end gap-x-4 gap-y-2 sm:gap-x-6 mt-4 sm:mt-6 lg:mt-8">
+          <span class="flex items-center gap-1.5 text-brand-green text-sm sm:text-base lg:text-lg font-medium">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Free forever
+          </span>
+          <span class="flex items-center gap-1.5 text-brand-green text-sm sm:text-base lg:text-lg font-medium">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            No account
+          </span>
+          <span class="flex items-center gap-1.5 text-brand-green text-sm sm:text-base lg:text-lg font-medium">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            No data leaves your phone
+          </span>
+        </div>
 
         <!-- Google Play badge (hidden on mobile, shown on desktop alongside text) -->
         <a
@@ -44,21 +60,21 @@ import { playStoreUrl, heroVideoUrl } from '../../config';
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Get FiveX Strong on Google Play"
-          class="hidden lg:inline-block mt-8"
+          class="hidden lg:block mt-10 ml-auto w-fit -mr-5"
         >
           <img
             src="/google-play-badge.png"
             alt="Get it on Google Play"
-            width="280"
-            height="83"
+            width="320"
+            height="95"
             fetchpriority="high"
           />
         </a>
       </div>
 
       <!-- Phone mockup (mobile: row 2, desktop: right column) -->
-      <div class="flex justify-center lg:justify-end lg:order-2">
-        <div class="relative w-[140px] sm:w-[220px] lg:w-[260px] rounded-[2rem] sm:rounded-[2.5rem] border-4 border-border bg-surface-card shadow-[0_0_60px_rgba(0,230,118,0.12)] flex flex-col overflow-hidden mx-auto">
+      <div class="flex justify-center lg:order-2">
+        <div class="relative w-[140px] sm:w-[220px] lg:w-[320px] rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] border-4 border-border bg-surface-card shadow-[0_0_60px_rgba(0,230,118,0.12)] flex flex-col overflow-hidden mx-auto">
 
           <!-- Status bar mock -->
           <div class="h-5 sm:h-6 lg:h-8 bg-surface-raised flex items-center justify-center">
@@ -110,8 +126,8 @@ import { playStoreUrl, heroVideoUrl } from '../../config';
           <img
             src="/google-play-badge.png"
             alt="Get it on Google Play"
-            width="280"
-            height="83"
+            width="220"
+            height="65"
             fetchpriority="high"
           />
         </a>
