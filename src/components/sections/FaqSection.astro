@@ -1,0 +1,57 @@
+---
+const faqs = [
+  {
+    question: "Is FiveX Strong really free?",
+    answer: "Yes, completely free with no locked features. You get one custom program slot included — optional upgrades add extra slots, themes, and more.",
+  },
+  {
+    question: "Do I need to create an account?",
+    answer: "No. Just download and start lifting. No sign-up, no email required.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes. Everything runs on your device — no internet needed at the gym.",
+  },
+  {
+    question: "What programs are included?",
+    answer: "Several proven programs out of the box, with more being added. You can also build your own.",
+  },
+  {
+    question: "Is my data private?",
+    answer: "Your workout data stays on your phone. The app sends crash reports to help us fix bugs, and we may add anonymised usage analytics in the future to improve the app.",
+  },
+  {
+    question: "Will I lose my data if I switch phones?",
+    answer: "No. Your data is backed up automatically after each workout, and you can restore it on a new device easily.",
+  },
+  {
+    question: "Is it available on iOS?",
+    answer: "FiveX Strong is Android only for now. iOS is being considered for the future.",
+  },
+];
+---
+
+<section class="py-12 sm:py-24 px-6 animate-on-scroll">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="text-center">
+      <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">
+        Frequently asked questions
+      </h2>
+    </div>
+
+    <div class="mt-8 sm:mt-12 space-y-6">
+      {faqs.map(({ question, answer }) => (
+        <div>
+          <h3 class="font-heading font-semibold text-base sm:text-lg text-text-primary">
+            {question}
+          </h3>
+          <p class="text-text-secondary text-sm sm:text-base leading-relaxed mt-1">
+            {answer}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
