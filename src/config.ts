@@ -6,7 +6,7 @@ export const playStoreUrl =
 export const ogTitle = 'FiveX Strong — Free, Private Strength Tracker';
 
 export const ogDescription =
-  'The simplest way to run a strength programme. Free forever, no account needed, no data leaves your phone.';
+  'Free strength tracker — no account, no subscriptions, no data leaves your phone. Just pick a program and lift.';
 
 export const heroVideoUrl = 'https://github.com/decoherance/fivex-marketing/releases/download/assets/hero.webm';
 

@@ -27,8 +27,11 @@ const differentiators = [
     >
       Why FiveX Strong
     </h2>
-    <p class="text-text-secondary text-lg mt-3 max-w-2xl mx-auto">
+    <p class="text-text-secondary text-lg sm:text-xl mt-3 max-w-2xl mx-auto">
       Training should be simple. We kept it that way.
+    </p>
+    <p class="text-text-muted text-sm sm:text-base mt-2 max-w-xl mx-auto">
+      No subscriptions. No cloud sync you didn't ask for. No features locked behind a paywall.
     </p>
   </div>
 
@@ -37,17 +40,9 @@ const differentiators = [
       differentiators.map(({ bold, support }) => (
         <div class="border-l-4 border-brand-green bg-surface-card rounded-lg p-6">
           <p class="font-heading font-bold text-xl text-text-primary">{bold}</p>
-          <p class="text-text-secondary text-sm mt-2">{support}</p>
+          <p class="text-text-secondary text-sm sm:text-base mt-2">{support}</p>
         </div>
       ))
     }
-  </div>
-
-  <!-- Become Elite — separate soft upsell -->
-  <div class="mt-6 sm:mt-8 max-w-2xl mx-auto text-center bg-surface-card border border-border-subtle rounded-lg p-6">
-    <p class="font-heading font-bold text-lg text-brand-green">Want more? Go Elite</p>
-    <p class="text-text-secondary text-sm mt-2">
-      Unlock extra pre-built programmes, additional custom programme slots, and themes for a small fee — and support the developer.
-    </p>
   </div>
 </section>

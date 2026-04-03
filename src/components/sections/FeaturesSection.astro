@@ -3,11 +3,12 @@ import Layers from "@lucide/astro/icons/layers";
 import PenLine from "@lucide/astro/icons/pen-line";
 import ChartBar from "@lucide/astro/icons/chart-bar";
 import WifiOff from "@lucide/astro/icons/wifi-off";
+import Crown from "@lucide/astro/icons/crown";
 
 const features = [
   {
     icon: Layers,
-    title: "Pre-built programmes",
+    title: "Pre-built programs",
     description:
       "Jump straight into proven strength routines. No guesswork — just pick a program and start lifting.",
   },
@@ -39,7 +40,7 @@ const features = [
     >
       What you get
     </h2>
-    <p class="text-text-secondary text-lg mt-3 max-w-2xl mx-auto">
+    <p class="text-text-secondary text-lg sm:text-xl mt-3 max-w-2xl mx-auto">
       Everything you need to train stronger
     </p>
   </div>
@@ -48,15 +49,40 @@ const features = [
     {
       features.map(({ icon: Icon, title, description }) => (
         <div class="bg-surface-card rounded-xl p-6 border border-border-subtle">
-          <Icon size={28} class="text-brand-green mb-4" />
-          <h3 class="font-heading font-bold text-lg text-text-primary">
-            {title}
-          </h3>
-          <p class="text-text-secondary text-sm mt-2 leading-relaxed">
+          <div class="flex items-center gap-2.5">
+            <Icon size={22} class="text-brand-green shrink-0" />
+            <h3 class="font-heading font-bold text-lg sm:text-xl text-text-primary">
+              {title}
+            </h3>
+          </div>
+          <p class="text-text-secondary text-sm sm:text-base mt-2 leading-relaxed">
             {description}
           </p>
         </div>
       ))
     }
+  </div>
+
+  <!-- Go Elite upsell -->
+  <div class="mt-4 sm:mt-6 bg-surface-card rounded-xl p-6 border border-border-subtle text-center">
+    <div class="flex items-center justify-center gap-2.5">
+      <Crown size={22} class="text-brand-teal shrink-0" />
+      <h3 class="font-heading font-bold text-lg sm:text-xl text-text-primary">Go Elite</h3>
+      <span class="shrink-0 rounded-full bg-brand-teal/10 border border-brand-teal/30 px-3 py-0.5 font-heading font-bold text-xs text-brand-teal uppercase tracking-wider">Optional</span>
+    </div>
+    <ul class="text-text-secondary text-sm sm:text-base mt-3 leading-relaxed flex flex-wrap justify-center gap-x-5 gap-y-1">
+      <li class="flex items-center gap-1.5">
+        <span class="text-brand-teal">&#x2022;</span> More programs
+      </li>
+      <li class="flex items-center gap-1.5">
+        <span class="text-brand-teal">&#x2022;</span> Extra custom program slots
+      </li>
+      <li class="flex items-center gap-1.5">
+        <span class="text-brand-teal">&#x2022;</span> Elite Ultradark theme
+      </li>
+      <li class="flex items-center gap-1.5">
+        <span class="text-brand-teal">&#x2022;</span> Support the developer
+      </li>
+    </ul>
   </div>
 </section>
