@@ -1,0 +1,60 @@
+---
+const steps = [
+  {
+    number: "1",
+    title: "Pick a program",
+    description: "Choose from proven strength programs like PPL and 5x5, or create your own.",
+  },
+  {
+    number: "2",
+    title: "Follow the workout",
+    description: "Progression and deloads are calculated automatically. Just load the bar and lift.",
+  },
+  {
+    number: "3",
+    title: "Track your progress",
+    description: "See your PRs, stats, progression, and workout history at a glance.",
+  },
+];
+---
+
+<section class="py-12 sm:py-24 bg-gradient-to-br from-[#00c866] to-[#00c2a0] animate-on-scroll">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="text-center">
+      <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-surface-base">
+        How it works
+      </h2>
+      <p class="text-surface-base/70 text-lg mt-3 max-w-2xl mx-auto">
+        Three steps. That's it.
+      </p>
+    </div>
+
+    <div class="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr_auto_1fr] gap-8 sm:gap-0 items-start">
+      {steps.map(({ number, title, description }, i) => (
+        <>
+          <div class="text-center">
+            <div class="font-heading font-bold text-6xl sm:text-7xl lg:text-8xl text-surface-base/20 leading-none">
+              {number.padStart(2, '0')}
+            </div>
+            <h3 class="font-heading font-bold text-xl sm:text-2xl lg:text-3xl text-surface-base mt-3 sm:mt-4">
+              {title}
+            </h3>
+            <p class="text-surface-base/70 text-base sm:text-lg mt-2 sm:mt-3 leading-relaxed max-w-xs mx-auto">
+              {description}
+            </p>
+          </div>
+          {i < 2 && (
+            <div class="hidden sm:flex items-center justify-center pt-6 lg:pt-8">
+              <svg class="w-8 h-8 lg:w-10 lg:h-10 text-surface-base/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </div>
+          )}
+        </>
+      ))}
+    </div>
+
+  </div>
+</section>
