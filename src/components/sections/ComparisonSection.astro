@@ -1,6 +1,7 @@
 ---
 import Check from "@lucide/astro/icons/check";
 import X from "@lucide/astro/icons/x";
+import CtaButton from '../CtaButton.astro';
 
 const rows = [
   { feature: "Free forever", fivex: true, others: false },
@@ -10,6 +11,9 @@ const rows = [
   { feature: "No data sold to third parties", fivex: true, others: false },
   { feature: "Custom programs", fivex: true, others: "Paywalled" },
   { feature: "Progress tracking & PRs", fivex: true, others: "Paywalled" },
+  { feature: "Social features & sharing", fivex: false, others: true },
+  { feature: "Large exercise library", fivex: "Growing", others: true },
+  { feature: "Unlimited custom exercises", fivex: true, others: "Paywalled" },
 ];
 ---
 
@@ -17,7 +21,7 @@ const rows = [
 
   <div class="text-center">
     <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">
-      How FiveX Strong compares
+      How FiveX Strong Compares
     </h2>
     <p class="text-text-secondary text-lg sm:text-xl mt-3 max-w-2xl mx-auto">
       Other trackers profit twice — once from your subscription, again from your data. We don't.
@@ -33,7 +37,7 @@ const rows = [
             <span class="font-heading font-bold text-brand-green text-base sm:text-lg">FiveX Strong</span>
           </th>
           <th class="text-center px-4 py-3">
-            <span class="font-heading font-bold text-text-muted text-base sm:text-lg">Other trackers</span>
+            <span class="font-heading font-bold text-text-muted text-base sm:text-lg">Other Trackers</span>
           </th>
         </tr>
       </thead>
@@ -44,12 +48,16 @@ const rows = [
             <td class="px-4 py-3 text-center">
               {fivex === true ? (
                 <Check size={20} class="text-brand-green mx-auto" />
+              ) : fivex === false ? (
+                <X size={20} class="text-red-400 mx-auto" />
               ) : (
                 <span class="text-text-muted text-sm">{fivex}</span>
               )}
             </td>
             <td class="px-4 py-3 text-center rounded-r-lg">
-              {others === false ? (
+              {others === true ? (
+                <Check size={20} class="text-brand-green mx-auto" />
+              ) : others === false ? (
                 <X size={20} class="text-red-400 mx-auto" />
               ) : (
                 <span class="text-text-muted text-sm">{others}</span>
@@ -59,6 +67,10 @@ const rows = [
         ))}
       </tbody>
     </table>
+  </div>
+
+  <div class="mt-8 sm:mt-12 flex justify-center">
+    <CtaButton event="cta-after-comparison" />
   </div>
 
 </section>

@@ -4,9 +4,10 @@ import { playStoreUrl } from '../config';
 interface Props {
   event: string;
   size?: 'sm' | 'md' | 'lg';
+  label?: string;
 }
 
-const { event, size = 'md' } = Astro.props;
+const { event, size = 'md', label = 'Get FiveX Strong — Free' } = Astro.props;
 
 const sizeClasses = {
   sm: 'gap-2.5 pl-5 pr-1.5 py-1.5 text-sm',
@@ -31,7 +32,7 @@ const badgeSizes = {
     sizeClasses[size],
   ]}
 >
-  <span class="font-heading font-bold text-white tracking-wide">Get FiveX Strong — Free</span>
+  <span class="font-heading font-bold text-white tracking-wide">{label}</span>
   <img
     src="/google-play-badge.png"
     alt="Get it on Google Play"

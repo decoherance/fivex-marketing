@@ -3,30 +3,38 @@ import Layers from "@lucide/astro/icons/layers";
 import PenLine from "@lucide/astro/icons/pen-line";
 import ChartBar from "@lucide/astro/icons/chart-bar";
 import WifiOff from "@lucide/astro/icons/wifi-off";
+import CtaButton from '../CtaButton.astro';
+
+const baseUrl = 'https://github.com/decoherance/fivex-marketing/releases/download/assets';
+
 const features = [
   {
     icon: Layers,
-    title: "Pre-built programs",
+    title: "Pre-Built Programs",
     description:
       "Jump straight into proven strength routines. No guesswork — just pick a program and start lifting.",
+    screenshot: { src: `${baseUrl}/screenshot-pre-defined-programs.png`, alt: 'Pre-built programs screen' },
   },
   {
     icon: PenLine,
-    title: "Build your own",
+    title: "Build Your Own",
     description:
       "Create custom programs tailored to your goals. Choose exercises, sets, and reps that work for you.",
+    screenshot: { src: `${baseUrl}/screenshot-program.png`, alt: 'Program selection screen' },
   },
   {
     icon: ChartBar,
-    title: "Track your progress",
+    title: "Track Your Progress",
     description:
       "Every session logged automatically. See your history, track personal records, and watch your strength grow.",
+    screenshot: { src: `${baseUrl}/screenshot-track-progress.png`, alt: 'Progress tracking screen' },
   },
   {
     icon: WifiOff,
-    title: "Works offline",
+    title: "Works Offline",
     description:
       "No Wi-Fi at the gym? No problem. Everything works offline — your data lives on your device.",
+    screenshot: { src: `${baseUrl}/screenshot-workout.png`, alt: 'Active workout screen' },
   },
 ];
 ---
@@ -36,7 +44,7 @@ const features = [
     <h2
       class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-text-primary"
     >
-      What you get
+      What You Get
     </h2>
     <p class="text-text-secondary text-lg sm:text-xl mt-3 max-w-2xl mx-auto">
       Everything you need to train stronger
@@ -45,21 +53,32 @@ const features = [
 
   <div class="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
     {
-      features.map(({ icon: Icon, title, description }) => (
-        <div class="bg-surface-card rounded-xl p-6 border border-border-subtle">
-          <div class="flex items-center gap-2.5">
-            <Icon size={22} class="text-brand-green shrink-0" />
-            <h3 class="font-heading font-bold text-lg sm:text-xl text-text-primary">
-              {title}
-            </h3>
+      features.map(({ icon: Icon, title, description, screenshot }) => (
+        <div class="bg-surface-card rounded-xl border border-border-subtle overflow-hidden flex flex-row items-center gap-4 p-4 sm:p-6">
+          <img
+            src={screenshot.src}
+            alt={screenshot.alt}
+            width="120"
+            loading="lazy"
+            class="rounded-xl border border-border shrink-0 w-[100px] sm:w-[120px]"
+          />
+          <div>
+            <div class="flex items-center gap-2.5">
+              <Icon size={22} class="text-brand-green shrink-0" />
+              <h3 class="font-heading font-bold text-lg sm:text-xl text-text-primary">
+                {title}
+              </h3>
+            </div>
+            <p class="text-text-secondary text-sm sm:text-base mt-2 leading-relaxed">
+              {description}
+            </p>
           </div>
-          <p class="text-text-secondary text-sm sm:text-base mt-2 leading-relaxed">
-            {description}
-          </p>
         </div>
       ))
     }
   </div>
 
-
+  <div class="mt-8 sm:mt-12 flex justify-center">
+    <CtaButton event="cta-after-features" />
+  </div>
 </section>

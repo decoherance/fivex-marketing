@@ -1,16 +1,18 @@
 ---
+import CtaButton from '../CtaButton.astro';
+
 const differentiators = [
   {
-    bold: "No account needed",
+    bold: "No Account Needed",
     support: "Open the app and start training. No sign-up, no email, no friction.",
   },
   {
-    bold: "Free forever",
+    bold: "Free Forever",
     support:
       "No subscriptions. Every feature is yours from day one.",
   },
   {
-    bold: "Your data stays yours",
+    bold: "Your Data Stays Yours",
     support:
       "Everything is stored locally on your device. No cloud, no tracking, no servers.",
   },
@@ -44,5 +46,9 @@ const differentiators = [
         </div>
       ))
     }
+  </div>
+
+  <div class="mt-8 sm:mt-12 flex justify-center">
+    <CtaButton event="cta-after-differentiators" />
   </div>
 </section>
