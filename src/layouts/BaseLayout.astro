@@ -1,11 +1,35 @@
 ---
 import { Font } from 'astro:assets';
 import '../styles/global.css';
-import { siteUrl, ogTitle, ogDescription } from '../config';
+import { siteUrl, ogTitle, ogDescription, playStoreUrl } from '../config';
 import StickyCtaBar from '../components/StickyCtaBar.astro';
 
 const ogImageUrl = `${siteUrl}/og-image.png`;
 const canonicalUrl = siteUrl;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "FiveX Strong",
+  "operatingSystem": "Android",
+  "applicationCategory": "HealthApplication",
+  "description": ogDescription,
+  "url": canonicalUrl,
+  "installUrl": playStoreUrl,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+  },
+  "featureList": [
+    "Pre-built strength programs",
+    "Custom program builder",
+    "Progress tracking and personal records",
+    "Fully offline functionality",
+    "No account required",
+    "Local-only data storage",
+  ],
+};
 ---
 
 <html lang="en" class="dark">
@@ -41,6 +65,9 @@ const canonicalUrl = siteUrl;
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" href="/favicon.ico" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
     <!-- Analytics -->
     <script defer src="https://cloud.umami.is/script.js" data-website-id="88c8ed46-8755-4247-8442-29a91a81a076"></script>
